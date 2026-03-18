@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高品質圖片互動展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 容器設定 */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #1a1a1a;
+            aspect-ratio: 16 / 10;
+        }
+
+        /* 預設狀態：微模糊、亮度稍微降低，保持可見度 */
+        .interactive-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(2px) brightness(0.85); /* 降低模糊度並提升亮度 */
+            transform: scale(1);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, filter;
+        }
+
+        /* 懸停狀態：完全清晰、原亮度、放大 */
+        .image-container:hover .interactive-img {
+            filter: blur(0px) brightness(1);
+            transform: scale(1.1);
+        }
+
+        /* 外層容器懸浮陰影 */
+        .image-container:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 文字遮罩層 */
+        .img-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            padding: 24px;
+            opacity: 0.8;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-container:hover .img-overlay {
+            opacity: 1;
+        }
+
+        /* 加載失敗時的樣式 */
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: #2d2d2d;
+            color: #666;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100 min-h-screen flex flex-col items-center py-16 px-6">
+
+    <!-- 標題區 -->
+    <header class="max-w-4xl w-full text-center mb-16">
+        <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            補苗嫁接
+        </h1>
+        <p class="text-gray-400 text-lg">探索細節：將鼠標懸停於下方圖片以解鎖高畫質視角</p>
+    </header>
+
+    <!-- 圖片展示網格 -->
+    <main class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+        
+        <!-- 第一張圖：1abc -->
+        <div class="image-container group">
+            <img src="1abc.jpg" 
+                 alt="作品 1" 
+                 class="interactive-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="img-fallback hidden"><span>找不到 1abc.jpg</span></div>
+            <div class="img-overlay">
+                <span class="text-blue-400 font-mono text-sm mb-1">IMAGE 01</span>
+                <h3 class="font-bold text-xl uppercase tracking-wider">核心架構</h3>
+            </div>
+        </div>
+
+        <!-- 第二張圖：2abc -->
+        <div class="image-container group">
+            <img src="2abc.jpg" 
+                 alt="作品 2" 
+                 class="interactive-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="img-fallback hidden"><span>找不到 2abc.jpg</span></div>
+            <div class="img-overlay">
+                <span class="text-blue-400 font-mono text-sm mb-1">IMAGE 02</span>
+                <h3 class="font-bold text-xl uppercase tracking-wider">深度研究</h3>
+            </div>
+        </div>
+
+        <!-- 第三張圖：3abc -->
+        <div class="image-container group">
+            <img src="3abc.jpg" 
+                 alt="作品 3" 
+                 class="interactive-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="img-fallback hidden"><span>找不到 3abc.jpg</span></div>
+            <div class="img-overlay">
+                <span class="text-blue-400 font-mono text-sm mb-1">IMAGE 03</span>
+                <h3 class="font-bold text-xl uppercase tracking-wider">創新應用</h3>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 頁尾說明 -->
+    <footer class="mt-20 border-t border-gray-800 pt-8 w-full max-w-2xl text-center">
+        <p class="text-gray-600 text-sm">
+            請確保 1abc.jpg, 2abc.jpg, 3abc.jpg 位於 gallery.html 的相同目錄下。
+        </p>
+    </footer>
+
+</body>
+</html>
