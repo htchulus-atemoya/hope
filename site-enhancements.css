@@ -1,0 +1,12 @@
+
+/* Shared usability improvements; retain each page's original visual design. */
+*{box-sizing:border-box} img{max-width:100%} html{scroll-behavior:smooth}
+a:focus-visible,button:focus-visible,img[tabindex]:focus-visible{outline:3px solid #d8f06b;outline-offset:4px}
+.site-tools{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px auto;max-width:960px}
+.site-tools a{padding:10px 16px;border:1px solid #8caa78;border-radius:24px;background:#15261e;color:#fff;text-decoration:none;font:inherit;min-height:44px}
+@media(max-width:700px){.composite-card{margin-left:0;margin-right:0}.css-collage{grid-template-columns:repeat(2,minmax(0,1fr))!important}.container{max-width:100%} .site-tools{padding:0 12px} h1{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.css-collage img{height:auto}.card img{max-width:100%}
+@media(max-width:600px){.gallery{grid-template-columns:minmax(0,1fr)!important}.card{min-width:0}body{overflow-wrap:break-word}}
+.card{cursor:default}
