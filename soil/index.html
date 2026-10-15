@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BH-01 鳳梨釋迦在臺東美農村（山麓沖積扇）與臺東機場附近（平原）生長速度不同。本頁記錄我從土壤質地、水分滲透與灌溉水三方面所做的簡易實驗。">
+  <title>土壤與水的實驗｜BH-01 兩地生長差異初探</title>
+  <style>
+    :root {
+      --lime: #d8f06b;
+      --green: #b5d333;
+      --ink: #142016;
+      --panel: rgba(12, 24, 14, .86);
+      --line: rgba(255, 255, 255, .18);
+      --soft: #e1ebd9;
+      --muted: #ccd7c5;
+      --sand: #e2b866;
+      --violet: #c9b5ff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #fff;
+      background: #172018;
+      font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    }
+
+    .container {
+      width: min(1050px, 100%);
+      margin: auto;
+      padding: 48px 20px 80px;
+    }
+
+    header { text-align: center; margin-bottom: 30px; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 16px;
+      border: 1px solid rgba(216, 240, 107, .55);
+      border-radius: 999px;
+      color: var(--lime);
+      font-size: .9rem;
+      letter-spacing: .08em;
+    }
+    h1 {
+      display: inline-block;
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--green);
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      line-height: 1.45;
+      text-shadow: 0 3px 16px #000;
+    }
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, .28);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .intro {
+      max-width: 890px;
+      margin: 26px auto 42px;
+      padding: 26px 30px;
+      border-color: rgba(181, 211, 51, .48);
+      font-size: 1.03rem;
+      line-height: 1.9;
+    }
+    .intro p { margin: 0 0 12px; }
+    .intro p:last-child { margin-bottom: 0; }
+    strong { color: var(--lime); }
+
+    .quick-nav h2 { text-align: center; margin: 0 0 20px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .nav-btn, .home-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px 16px;
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 999px;
+      text-align: center;
+      text-decoration: none;
+      font-size: .95rem;
+      font-weight: 700;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      transition: .2s ease;
+    }
+    .nav-btn:hover, .nav-btn:focus-visible,
+    .home-btn:hover, .home-btn:focus-visible {
+      color: var(--ink);
+      background: rgba(216, 240, 107, .95);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .section {
+      scroll-margin-top: 20px;
+      margin: 42px 0;
+      padding: 32px;
+    }
+    .section-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin: 0 0 18px;
+      padding-left: 12px;
+      border-left: 5px solid var(--green);
+      color: var(--lime);
+      font-size: 1.62rem;
+      line-height: 1.4;
+    }
+    .section > p { margin: 0 0 16px; line-height: 1.9; }
+
+    .status {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--ink);
+    }
+    .status.done { background: var(--lime); }
+    .status.doing { background: var(--sand); }
+
+    .env-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 22px 0 10px;
+    }
+    .env-card {
+      min-width: 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .env-card h3 { margin: 0 0 10px; color: var(--lime); font-size: 1.2rem; }
+    .env-card ul { margin: 0; padding-left: 20px; line-height: 1.8; color: var(--soft); }
+
+    .note {
+      margin: 16px 0 0;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(181, 211, 51, .12);
+      line-height: 1.8;
+    }
+    .note.caveat { background: rgba(226, 184, 102, .14); }
+
+    .steps {
+      margin: 6px 0 0;
+      padding-left: 22px;
+      line-height: 1.9;
+      color: var(--soft);
+    }
+    .steps li { margin-bottom: 4px; }
+    .formula {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 22px 0;
+    }
+    .photo-card {
+      margin: 0;
+      min-width: 0;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+    .photo-card img { display: block; width: 100%; height: auto; }
+    .photo-card figcaption { padding: 10px 14px; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+
+    .data-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      min-width: 420px;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      line-height: 1.6;
+    }
+    th { color: var(--lime); font-weight: 700; }
+    td:first-child, th:first-child { text-align: left; color: var(--soft); }
+    .big { font-size: 1.15rem; font-weight: 800; color: #fff; }
+
+    .chart-card {
+      min-width: 0;
+      padding: 16px 16px 8px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .chart-card svg { display: block; width: 100%; height: auto; }
+
+    .find {
+      margin-top: 22px;
+      padding: 18px 22px;
+      border: 1px solid rgba(216, 240, 107, .55);
+      border-radius: 14px;
+      background: rgba(216, 240, 107, .08);
+      line-height: 1.9;
+    }
+    .find b.k { color: var(--lime); }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .plan-card {
+      min-width: 0;
+      padding: 18px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      line-height: 1.75;
+    }
+    .plan-card h3 { margin: 0 0 8px; color: var(--lime); font-size: 1.1rem; }
+    .plan-card p { margin: 0; color: var(--soft); }
+    .plan-card .then { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
+    .plan-card .then b { color: var(--violet); }
+
+    .learn {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .learn li {
+      padding: 8px 14px;
+      border: 1px solid rgba(201, 181, 255, .55);
+      border-radius: 999px;
+      color: var(--violet);
+      font-size: .95rem;
+    }
+
+    .links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 10px; }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .nav-grid, .plan-grid, .links { grid-template-columns: minmax(0, 1fr); }
+      .env-grid, .two-col { grid-template-columns: minmax(0, 1fr); }
+      .section { padding: 24px 18px; }
+      .intro { padding: 22px 20px; }
+      .section-title { font-size: 1.38rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .nav-btn, .home-btn { transition: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="../site-enhancements.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <div class="eyebrow">土壤與水的實驗</div><br>
+      <h1>同一個 BH-01，為什麼兩地長得不一樣？</h1>
+    </header>
+
+    <section class="intro glass">
+      <p><strong>BH-01</strong> 是家中祖父母選出的鳳梨釋迦候選株。目前在<strong>美農村</strong>與相距約 10 公里的<strong>臺東機場附近</strong>，各有上百株以它為接穗來源的嫁接株。接穗來源相同，<strong>機場附近的植株卻長得明顯較快</strong>。</p>
+      <p>兩地的地形不同：美農村位在<strong>山麓沖積扇</strong>，機場附近則是<strong>平原</strong>。河水流出山區時，粗的砂石先沉積在山麓，細的土粒被帶到更遠的平原。我推測兩地生長的差異，可能和<strong>土壤與水分條件</strong>有關，所以從三個方向做了簡易實驗：土本身的粗細、水怎麼進入土壤、灌溉水帶來了什麼。</p>
+      <p>這些都是用寶特瓶、水管這類簡單器材完成的初步觀察，不是正式的土壤分析。</p>
+    </section>
+
+    <nav class="quick-nav" aria-label="本頁目錄">
+      <h2>本頁目錄</h2>
+      <div class="nav-grid">
+        <a class="nav-btn" href="#sites">兩地環境比較</a>
+        <a class="nav-btn" href="#texture">實驗一｜土壤沉降</a>
+        <a class="nav-btn" href="#infiltration">實驗二｜滲透速度</a>
+        <a class="nav-btn" href="#turbidity">實驗三｜圳水混濁度</a>
+        <a class="nav-btn" href="#next">接下來想研究的</a>
+        <a class="nav-btn" href="../index.html">完整果園年度紀實</a>
+      </div>
+    </nav>
+
+    <section class="section glass" id="sites">
+      <h2 class="section-title">兩地環境比較</h2>
+      <div class="env-grid">
+        <div class="env-card">
+          <h3>美農村果園</h3>
+          <ul>
+            <li>地形：山麓沖積扇，40 年前整平的緩坡地</li>
+            <li>海拔：約 180～200 公尺</li>
+            <li>土壤：砂質壤土</li>
+            <li>灌溉水：卑南上圳；香菇頭噴灌，部分淹灌</li>
+            <li>BH-01 生長：較慢</li>
+          </ul>
+        </div>
+        <div class="env-card">
+          <h3>臺東機場附近果園</h3>
+          <ul>
+            <li>地形：平原</li>
+            <li>海拔：約 20～30 公尺</li>
+            <li>土壤：待實驗一確認</li>
+            <li>灌溉水：卑南圳</li>
+            <li>BH-01 生長：較快</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note caveat">需要排除的變因：兩地的施肥、灌溉管理與氣候都不同；嫁接用的砧木是實生苗，本身也可能有差異。所以這些實驗只能找出「可能的原因」，還不能下結論。</p>
+    </section>
+
+    <section class="section glass" id="texture">
+      <h2 class="section-title">實驗一｜土壤沉降觀察 <span class="status doing">進行中</span></h2>
+      <p>想知道的問題：兩地的土壤，顆粒粗細真的不一樣嗎？深一點的土又有什麼不同？</p>
+      <ol class="steps">
+        <li>在兩處果園的 BH-01 樹下滴水線各挖一個約 35 公分深的洞，從坑壁取 <b>15 公分</b>與 <b>30 公分</b>深的土，共 4 瓶。</li>
+        <li>土裝到寶特瓶高度的 1/3，加水到 3/4，放少許洗衣粉讓顆粒分散，搖 3 分鐘後放平。</li>
+        <li>顆粒越大沉得越快：<b>1 分鐘</b>量砂層、<b>2 小時</b>量坋粒、<b>1 天</b>水變清後量總高度，換算成比例。</li>
+      </ol>
+      <p class="formula">砂 % ＝ 砂層高度 ÷ 總高度 × 100</p>
+      <p class="note">依沖積扇的沉積規律，我預期美農村的土砂比較多、機場附近的坋粒和黏粒比較多。實驗完成後會在這裡放上 4 瓶的分層照片與比例。</p>
+    </section>
+
+    <section class="section glass" id="infiltration">
+      <h2 class="section-title">實驗二｜土壤滲透速度 <span class="status doing">進行中</span></h2>
+      <p>想知道的問題：兩地的土壤，讓水滲進去的速度一樣嗎？滲得太快，灌溉水和肥料容易流到根圈以下；滲得太慢，緩坡地上容易積水或逕流。</p>
+      <ol class="steps">
+        <li>每處果園選 2 個點，都在 BH-01 樹下滴水線附近，草剪短；兩地都在幾天沒下雨、沒灌溉後測。</li>
+        <li>把 4 吋 PVC 管敲進土裡約 5 公分，先倒一次水讓土吸飽。</li>
+        <li>再倒水到 10 公分，計時 30 分鐘，記錄水位下降了幾公分。</li>
+      </ol>
+      <p class="formula">滲透速度（公分／小時）＝ 30 分鐘下降公分數 × 2</p>
+      <p class="note">家中美農村果園每次噴灌約 120 分鐘。量出滲透速度後，我想和噴頭的給水速率比較，看看這樣的灌溉量對砂質壤土是否太多。</p>
+    </section>
+
+    <section class="section glass" id="turbidity">
+      <h2 class="section-title">實驗三｜卑南圳與卑南上圳水混濁度 <span class="status done">已完成</span></h2>
+      <p>想知道的問題：兩條圳的水，哪一條比較混濁？圳水看起來混濁，是因為帶著上游沖刷下來的細小土粒。這些土粒隨灌溉水，尤其是淹灌時進入果園，可能沉積在地表、堵住土壤孔隙。</p>
+
+      <div class="two-col">
+        <figure class="photo-card">
+          <img src="water-bottles.webp" alt="卑南圳與卑南上圳的水各裝一瓶，並排放在畫有黑色 X 的白紙前" width="1400" height="1050" loading="lazy" decoding="async">
+          <figcaption>兩瓶圳水並排放在 X 圖卡前。</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="water-x.webp" alt="從瓶口往下看，透過混濁的卑南圳水隱約看到瓶底的 X" width="1400" height="1050" loading="lazy" decoding="async">
+          <figcaption>從瓶口往下看 X（卑南圳）。看不到 X 就倒掉一些水，直到剛好看到 X，再量剩下的水深。</figcaption>
+        </figure>
+      </div>
+
+      <div class="two-col">
+        <div class="data-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>卑南圳</th><th>卑南上圳</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>取水日期</td><td colspan="2">8 月 25 日（前 3 天沒有下雨）</td></tr>
+              <tr><td>水的顏色</td><td>灰</td><td>灰</td></tr>
+              <tr><td>瓶子全高</td><td>23 公分</td><td>23 公分</td></tr>
+              <tr><td>透視度</td><td class="big">5.2 公分</td><td class="big">6.1 公分</td></tr>
+              <tr><td>灌溉的果園</td><td>機場附近</td><td>美農村</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="chart-card">
+          <svg viewBox="0 0 420 260" role="img" aria-labelledby="chartTitle">
+            <title id="chartTitle">透視度比較：卑南圳 5.2 公分、卑南上圳 6.1 公分，自來水裝滿 23 公分仍看得到 X</title>
+            <text x="210" y="20" text-anchor="middle" fill="#d8f06b" font-size="14" font-weight="700">透視度（公分）｜數字越大＝水越清</text>
+            <g font-size="11" fill="#ccd7c5" text-anchor="end">
+              <line x1="48" x2="400" y1="220" y2="220" stroke="rgba(255,255,255,.45)"/>
+              <line x1="48" x2="400" y1="182" y2="182" stroke="rgba(255,255,255,.12)"/><text x="40" y="186">5</text>
+              <line x1="48" x2="400" y1="144" y2="144" stroke="rgba(255,255,255,.12)"/><text x="40" y="148">10</text>
+              <line x1="48" x2="400" y1="106" y2="106" stroke="rgba(255,255,255,.12)"/><text x="40" y="110">15</text>
+              <line x1="48" x2="400" y1="68" y2="68" stroke="rgba(255,255,255,.12)"/><text x="40" y="72">20</text>
+              <text x="40" y="224">0</text>
+            </g>
+            <line x1="48" x2="400" y1="45" y2="45" stroke="rgba(255,255,255,.35)" stroke-dasharray="3 4"/>
+            <text x="52" y="40" fill="#ccd7c5" font-size="10.5">瓶子全高 23 公分</text>
+            <rect x="80" y="180.5" width="72" height="39.5" rx="4" fill="#b5d333"/>
+            <text x="116" y="173" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">5.2</text>
+            <rect x="188" y="173.6" width="72" height="46.4" rx="4" fill="#c9b5ff"/>
+            <text x="224" y="166" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">6.1</text>
+            <rect x="296" y="45" width="72" height="175" rx="4" fill="rgba(255,255,255,.28)"/>
+            <text x="332" y="38" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">≥23</text>
+            <g font-size="12" fill="#e1ebd9" text-anchor="middle">
+              <text x="116" y="240">卑南圳</text>
+              <text x="224" y="240">卑南上圳</text>
+              <text x="332" y="240">自來水（對照）</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="find"><b class="k">我的發現：</b>兩條圳的水都是灰色，透視度只有 5～6 公分，遠低於自來水的 23 公分以上，代表這次取水時<strong>兩條圳都帶有相當多懸浮的細小土粒</strong>。取水前 3 天沒有下雨，這些土粒應該不是剛下雨沖刷進來的，可能來自上游水源本身。卑南圳（5.2 公分）只比卑南上圳（6.1 公分）稍濁，相差不到 1 公分，在用眼睛判斷的誤差範圍內，<strong>這次取樣看不出明顯差異</strong>。</div>
+      <p class="note caveat">限制：只取樣一次，混濁度會隨降雨和上游狀況改變；透視度靠眼睛判斷，只反映懸浮物多寡，不代表養分或污染物含量。</p>
+    </section>
+
+    <section class="section glass" id="next">
+      <h2 class="section-title">接下來想研究的</h2>
+      <div class="plan-grid">
+        <div class="plan-card">
+          <h3>土壤質地</h3>
+          <p>用沉降法估算兩地 15、30 公分深土壤的砂、坋、黏比例。</p>
+          <p class="then"><b>下一步：</b>把土樣送臺東區農業改良場分析質地、有機質與有效性養分，檢查我的估算準不準。</p>
+        </div>
+        <div class="plan-card">
+          <h3>水分滲透</h3>
+          <p>用 4 吋管量兩地土壤的滲透速度。</p>
+          <p class="then"><b>下一步：</b>量噴頭的給水速率，找出砂質壤土果園更省水、省肥的灌溉時間與頻率。</p>
+        </div>
+        <div class="plan-card">
+          <h3>灌溉水</h3>
+          <p>發現晴天的兩條圳水都帶有大量細土粒。</p>
+          <p class="then"><b>下一步：</b>比較晴天與雨後的圳水，並把瓶底泥沙風乾，觀察它偏砂還是偏黏、淹灌後會不會改變果園表土。</p>
+        </div>
+      </div>
+      <p>進入大學後，我想學習的方向：</p>
+      <ul class="learn">
+        <li>土壤物理：正確量測質地、保水與入滲</li>
+        <li>土壤肥力：依土壤分析施肥</li>
+        <li>植物營養：釋迦各生育期的養分需求</li>
+        <li>試驗設計：排除管理差異，真正比較兩地土壤</li>
+      </ul>
+      <p class="note">祖父母說，歡迎老師和同學到家中果園參觀、做試驗。希望有一天能一起找出 BH-01 長得快慢的答案。</p>
+    </section>
+
+    <section class="section glass" id="more">
+      <h2 class="section-title">更多紀錄</h2>
+      <div class="links">
+        <a class="home-btn" href="../candidate/index.html">BH-01 候選株觀察紀錄</a>
+        <a class="home-btn" href="https://www.youtube.com/watch?v=oej3MVa_N0A&amp;list=PLZH3u_BLcDWiX25S_5QdyvVj45k8tM7To&amp;index=2" target="_blank" rel="noopener">祖父母經驗傳承影片</a>
+        <a class="home-btn" href="../index.html">完整果園年度紀實</a>
+      </div>
+    </section>
+
+    <footer>
+      土壤與水的實驗｜BH-01 兩地生長差異初探<br>柏涵 紀錄與製作
+    </footer>
+  </main>
+
+  <nav class="site-tools" aria-label="頁面導覽"><a href="../index.html">回首頁</a><a href="#">回到頁首 ↑</a></nav>
+</body>
+</html>
