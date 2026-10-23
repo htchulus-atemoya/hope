@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="95 0 905 668" width="905" height="668" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="mtn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2d5a2c"/><stop offset="1" stop-color="#5f9a4a"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fa3d6"/><stop offset="1" stop-color="#1b5e96"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9b985"/><stop offset="1" stop-color="#a7c27c"/>
+    </linearGradient>
+    <marker id="arrW" viewBox="0 0 8 8" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#ffffff"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1000" height="680" fill="#eef7ea"/>
+
+
+  <!-- foothills near 美農村 (higher elevation) -->
+  <path d="M120,200 C170,130 260,120 320,150 C370,180 370,240 330,270 C280,300 200,300 150,270 C120,250 105,225 120,200 Z"
+        fill="url(#hill)" stroke="#8a7a4a" stroke-width="1.2" opacity="0.95"/>
+  <path d="M150,210 C190,170 260,165 300,190 C330,210 320,245 290,255 C250,265 180,260 150,240 Z"
+        fill="none" stroke="#8a7a4a" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M175,222 C200,200 250,198 275,215 C292,228 280,244 260,246 C230,250 190,244 175,222 Z"
+        fill="none" stroke="#8a7a4a" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="190" y="152" font-size="21" fill="#5a4a22" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">山麓沖積扇</text>
+
+  <!-- Taitung plain -->
+  <path d="M300,250 L700,220 L780,360 L760,520 L660,600 L280,640 L230,470 Z" fill="#b9dc8a" opacity="0.85"/>
+  <text x="600" y="330" font-size="26" fill="#2f5d1a" font-weight="bold" opacity="0.8">台東平原</text>
+
+  <!-- sea (east / south-east) -->
+  <path d="M780,0 L1000,0 L1000,680 L700,680 C720,600 760,560 780,500 C800,430 780,380 800,300 C805,200 780,120 780,0 Z" fill="url(#sea)"/>
+  <text x="845" y="645" font-size="28" fill="#ffffff" font-weight="bold">太平洋</text>
+
+  <!-- 鹿野溪 (tributary from north-west, joins Beinan) -->
+  <path d="M300,0 C320,40 340,70 360,100 C390,140 410,170 430,190"
+        fill="none" stroke="#5da9dd" stroke-width="14" stroke-linecap="round"/>
+  <text x="260" y="40" font-size="20" fill="#1b4b7a" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">鹿野溪</text>
+
+  <!-- Beinan River -->
+  <path d="M440,0 C455,90 465,170 470,250 C478,330 520,380 580,420 C640,460 690,480 740,500"
+        fill="none" stroke="#2f8ed0" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M440,0 C455,90 465,170 470,250 C478,330 520,380 580,420 C640,460 690,480 740,500"
+        fill="none" stroke="#7cc3ef" stroke-width="6" stroke-linecap="round" stroke-dasharray="20 16" marker-mid="url(#arrW)"/>
+  <text x="520" y="260" font-size="28" fill="#0f4b7d" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">卑南溪</text>
+
+  <!-- 卑南圳 service area: covers the whole area south of the river -->
+  <path d="M300,430 C400,420 520,430 640,470 C670,480 680,500 660,520 L660,600 L300,650 L260,540 Z"
+        fill="#c6e0f5" stroke="#2f6fa0" stroke-width="2" stroke-dasharray="7 5" opacity="0.92"/>
+  <text x="470" y="486" font-size="20" fill="#0f3d63" text-anchor="middle" font-weight="bold">卑南圳灌溉區</text>
+  <text x="470" y="512" font-size="21" fill="#0f3d63" text-anchor="middle">約 2,680 公頃</text>
+  <text x="470" y="538" font-size="21" fill="#0f3d63" text-anchor="middle" stroke="#ffffff" stroke-width="3" paint-order="stroke">機場附近農地</text>
+
+  <!-- 卑南圳 intake on river and short canal south -->
+  <path d="M530,392 C532,410 532,425 530,440" fill="none" stroke="#e0662a" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="530" cy="388" r="10" fill="#e0662a" stroke="#ffffff" stroke-width="3"/>
+  <rect x="410" y="343" width="180" height="36" rx="6" fill="#e0662a"/>
+  <text x="500" y="369" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="bold">卑南圳取水口</text>
+
+  <!-- 卑南上圳 intake on 鹿野溪 upstream -->
+  <circle cx="330" cy="92" r="10" fill="#2e7d32" stroke="#ffffff" stroke-width="3"/>
+  <rect x="140" y="49" width="290" height="36" rx="6" fill="#2e7d32"/>
+  <text x="285" y="75" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="bold">卑南上圳取水口（鹿野溪）</text>
+
+  <!-- 卑南上圳 canal: from intake down to 美農村 on the higher ground -->
+  <path d="M330,92 C320,130 280,170 240,220" fill="none" stroke="#2e7d32" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- 卑南上圳 service area (around 美農村, on higher ground) -->
+  <path d="M190,215 C240,190 310,200 330,230 C345,260 310,285 260,285 C210,285 175,255 190,215 Z"
+        fill="#a9dd8a" stroke="#2e7d32" stroke-width="2" stroke-dasharray="7 5" opacity="0.92"/>
+  <text x="258" y="238" font-size="20" fill="#1b5e20" text-anchor="middle" font-weight="bold">卑南上圳灌溉區</text>
+  <text x="258" y="263" font-size="21" fill="#1b5e20" text-anchor="middle">約 1,520 公頃</text>
+  <circle cx="240" cy="220" r="5" fill="#1b5e20" stroke="#ffffff" stroke-width="2"/>
+  <text x="250" y="210" font-size="21" fill="#1b5e20" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">美農村</text>
+
+  <!-- place labels -->
+  <text x="250" y="450" font-size="20" fill="#3a5a2a" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">卑南</text>
+  <text x="700" y="560" font-size="24" fill="#222" font-weight="bold" stroke="#ffffff" stroke-width="4" paint-order="stroke">台東市</text>
+
+
+  <!-- north arrow -->
+  <g transform="translate(965,95)">
+    <path d="M0,-28 L12,14 L0,6 L-12,14 Z" fill="#1b2f4b"/>
+    <text x="0" y="-34" font-size="20" text-anchor="middle" fill="#1b2f4b" font-weight="bold">N</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(838,128)">
+    <rect x="0" y="0" width="150" height="130" rx="8" fill="#ffffff" fill-opacity="0.95" stroke="#999"/>
+    <text x="12" y="25" font-size="22" font-weight="bold" fill="#333">圖例</text>
+    <line x1="12" y1="46" x2="40" y2="46" stroke="#2f8ed0" stroke-width="8"/>
+    <text x="48" y="52" font-size="20" fill="#333">河川</text>
+    <line x1="12" y1="74" x2="40" y2="74" stroke="#e0662a" stroke-width="8"/>
+    <text x="48" y="80" font-size="20" fill="#333">卑南圳</text>
+    <line x1="12" y1="102" x2="40" y2="102" stroke="#2e7d32" stroke-width="8"/>
+    <text x="48" y="108" font-size="20" fill="#333">卑南上圳</text>
+  </g>
+
+</svg>
