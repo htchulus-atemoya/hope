@@ -36,7 +36,7 @@
   <text x="845" y="645" font-size="28" fill="#ffffff" font-weight="bold">太平洋</text>
 
   <!-- 鹿野溪 (tributary from north-west, joins Beinan) -->
-  <path d="M300,0 C320,40 340,70 360,100 C390,140 410,170 430,190"
+  <path d="M300,0 C320,40 340,70 360,100 C390,140 415,175 440,198 C452,208 460,214 468,220"
         fill="none" stroke="#5da9dd" stroke-width="14" stroke-linecap="round"/>
   <text x="260" y="40" font-size="20" fill="#1b4b7a" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">鹿野溪</text>
 
